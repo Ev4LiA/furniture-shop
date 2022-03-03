@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Navbar, Sidebar, Footer } from './components';
 
@@ -15,12 +15,15 @@ import {
 } from './pages';
 
 function App() {
+  useEffect(() => {
+    document.title = 'Furniture shop';
+  }, []);
+
   return (
     <AuthWrapper>
       <Router>
         <Navbar />
         <Sidebar />
-
         <Switch>
           <Route exact path="/">
             <Home />
